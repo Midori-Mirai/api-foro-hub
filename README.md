@@ -1,0 +1,72 @@
+# API Foro Hub
+![Portada del proyecto](imagenes/portada.png)
+
+Este proyecto es una API REST desarrollada con **Spring Boot 3** para la gestión de un foro académico. Permite el registro y visualización de cursos, usuarios y tópicos de discusión, así como operaciones de búsqueda, actualización y eliminación de tópicos.
+
+## 📌 Funcionalidades principales
+
+### 📚 Cursos
+- **Registrar curso**: permite dar de alta un nuevo curso en el sistema.
+- **Listar cursos**: muestra todos los cursos registrados.
+
+### 👤 Usuarios
+- **Registrar usuario**: permite registrar un nuevo usuario en el sistema.
+
+### 💬 Tópicos
+- **Registrar tópico**: crea un nuevo tópico de discusión asociado a un curso y un autor.
+- **Mostrar todos los tópicos**: devuelve una lista con todos los tópicos registrados.
+- **Mostrar tópico por ID**: devuelve los detalles de un tópico específico.
+- **Buscar por curso y año**: permite filtrar los tópicos por nombre de curso y año de creación.
+- **Actualizar tópico**: permite modificar el título, mensaje y curso de un tópico ya existente (sin alterar autor ni fecha de creación).
+- **Eliminar tópico**: elimina permanentemente un tópico de la base de datos.
+
+## 🚀 Tecnologías utilizadas
+- Java 21
+- Spring Boot 3
+- Spring Web
+- Spring Data JPA
+- Hibernate
+- MySQL
+- Postman / Insomnia (para pruebas)
+- Lombok
+
+## ⚙️ Requisitos previos
+- JDK 21
+- Maven
+- MySQL Server
+- IDE recomendado: IntelliJ IDEA
+
+## ▶️ Ejecución del proyecto
+1. Clona el repositorio.
+2. Configura tu archivo `application.properties` con los datos de conexión a MySQL.
+3. Ejecuta la clase principal para iniciar el servidor Spring Boot.
+4. Prueba los endpoints usando Postman o Insomnia en `http://localhost:8080`.
+
+## 📄 Estructura del proyecto
+![Estructura del proyecto](imagenes/estructura%20del%20proyecto.png)
+
+
+## 📬 Endpoints principales
+
+| Método | URI                          | Descripción                                                                |
+|--------|------------------------------|----------------------------------------------------------------------------|
+| POST   | /cursos                      | Registrar nuevo curso                                                      |
+| GET    | /cursos                      | Mostrar todos los cursos                                                   |
+| POST   | /usuarios                    | Registrar nuevo usuario                                                    |
+| POST   | /topicos                     | Registrar nuevo tópico                                                     |
+| GET    | /topicos                     | Listar todos los tópicos                                                   |
+| GET    | /topicos/{id}                | Mostrar detalles de un tópico por ID                                       |
+| GET    | /topicos/buscar              | Buscar tópico por nombre de curso y año (`?curso=Spring boot 3&anio=2025`) |
+| PUT    | /topicos/{id}                | Actualizar un tópico existente                                             |
+| DELETE | /topicos/{id}                | Eliminar un tópico                                                         |
+
+## 🛡️ Validaciones
+- Todos los campos requeridos son validados.
+- No se permiten títulos y mensajes duplicados.
+- Se valida la existencia de registros antes de realizar acciones sobre ellos.
+
+## 📫 Autor
+| [<img src="https://avatars.githubusercontent.com/u/196402413?v=4" width=115><br><sub>Desarrollado por: Zaricell Bautista</sub>](https://github.com/Midori-Mirai) |  
+| :---: | :---: | :---: |
+. Proyecto con fines educativos como parte del curso de Alura Latam: *Spring Boot 3: Practicando Spring Framework: Challenge Foro Hub*.
+
