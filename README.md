@@ -60,6 +60,43 @@ Este proyecto es una API REST desarrollada con **Spring Boot 3** para la gestió
 | PUT    | /topicos/{id}                | Actualizar un tópico existente                                             |
 | DELETE | /topicos/{id}                | Eliminar un tópico                                                         |
 
+## 🔐 Seguridad con JWT
+
+El proyecto utiliza **JWT (JSON Web Token)** para asegurar el acceso a los endpoints. A continuación, se describe el proceso de implementación:
+
+### 1. Login sin token
+El endpoint `POST /login` permite a los usuarios autenticarse enviando su email y contraseña. Si las credenciales son válidas, se genera un token JWT.
+
+### 2. Generación de token
+Se creó la clase `TokenService` que utiliza la librería de JWT para generar un token firmado con una clave secreta. Este token incluye el email del usuario como "subject" y una fecha de expiración.
+
+### 3. Filtro de seguridad
+Se implementó la clase `SecurityFilter`, extendiendo de `OncePerRequestFilter`. Este filtro se ejecuta en cada petición y:
+- Extrae el token del encabezado `Authorization`.
+- Valida y decodifica el token.
+- Carga al usuario desde la base de datos.
+- Autentica al usuario en el contexto de seguridad de Spring.
+
+### 4. Configuración de seguridad
+En la clase `SecurityConfigurations`:
+- Se deshabilita CSRF.
+- Se configura la política de sesión como stateless.
+- Se permite acceso libre solo al endpoint `/login`.
+- Se requiere autenticación para todos los demás endpoints.
+- Se registra el `SecurityFilter` antes del filtro de autenticación por defecto de Spring.
+
+### 5. Clases involucradas
+- `DatosAutenticacionUsuario`: DTO para login.
+- `AutenticacionController`: controlador para `/login`.
+- `TokenService`: genera y valida tokens.
+- `SecurityFilter`: filtra y autentica solicitudes con token.
+- `SecurityConfigurations`: configuración general de seguridad.
+
+### 6. Pruebas con Insomnia o Postman
+1. Realiza una petición `POST /login` con email y contraseña válidos.
+2. Copia el token devuelto.
+3. Usa ese token como `Bearer Token` en las solicitudes protegidas (`/topicos`, `/cursos`, etc.).
+
 ## 🛡️ Validaciones
 - Todos los campos requeridos son validados.
 - No se permiten títulos y mensajes duplicados.
