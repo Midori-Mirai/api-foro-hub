@@ -4,6 +4,7 @@ import com.alurachallenge.api_foro_hub.domain.curso.Curso;
 import com.alurachallenge.api_foro_hub.domain.curso.CursoRepository;
 import com.alurachallenge.api_foro_hub.domain.curso.DatosDetalleCurso;
 import com.alurachallenge.api_foro_hub.domain.curso.DatosRegistroCurso;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+@SecurityRequirement(name = "bearerAuth")
 @RestController
 @RequestMapping("/cursos")
 public class CursoController {
