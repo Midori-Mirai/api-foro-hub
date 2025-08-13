@@ -10,7 +10,10 @@ Este proyecto es una API REST desarrollada con **Spring Boot 3** para la gestió
 - **Listar cursos**: muestra todos los cursos registrados.
 
 ### 👤 Usuarios
+- **Login usuario**: permite loguear a un usuario (email y contraseña) previamente registrado, usando un JWT.
 - **Registrar usuario**: permite registrar un nuevo usuario en el sistema.
+- **Mostrar todos los usuarios**: devuelve una lista con todos los usuarios registrados.
+- **Buscar usuario por nombre**: permite filtrar los usuarios por fragmento de nombre.
 
 ### 💬 Tópicos
 - **Registrar tópico**: crea un nuevo tópico de discusión asociado a un curso y un autor.
@@ -19,6 +22,14 @@ Este proyecto es una API REST desarrollada con **Spring Boot 3** para la gestió
 - **Buscar por curso y año**: permite filtrar los tópicos por nombre de curso y año de creación.
 - **Actualizar tópico**: permite modificar el título, mensaje y curso de un tópico ya existente (sin alterar autor ni fecha de creación).
 - **Eliminar tópico**: elimina permanentemente un tópico de la base de datos.
+
+### 📥 Respuestas
+- **Registrar respuesta**: agrega una nueva respuesta a un tópico específico, asociada a un autor.
+- **Mostrar todas las respuestas**: devuelve una lista con todas las respuestas registradas.
+- **Mostrar respuesta por ID**: devuelve los detalles de una respuesta específica.
+- **Actualizar respuesta**: permite modificar el contenido de una respuesta existente (sin alterar el autor ni la fecha de creación).
+- **Eliminar respuesta**: elimina permanentemente una respuesta de la base de datos.
+
 
 ## 🚀 Tecnologías utilizadas
 - Java 21
