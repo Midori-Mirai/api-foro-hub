@@ -53,12 +53,19 @@ Este proyecto es una API REST desarrollada con **Spring Boot 3** para la gestió
 | POST   | /cursos                      | Registrar nuevo curso                                                      |
 | GET    | /cursos                      | Mostrar todos los cursos                                                   |
 | POST   | /usuarios                    | Registrar nuevo usuario                                                    |
+| GET    | /usuarios                    | Mostrar todos los usuarios                                                 |
+| GET    | /usuarios/buscar             | Buscar usuario por fragmento de nombre                                     |
 | POST   | /topicos                     | Registrar nuevo tópico                                                     |
 | GET    | /topicos                     | Listar todos los tópicos                                                   |
 | GET    | /topicos/{id}                | Mostrar detalles de un tópico por ID                                       |
 | GET    | /topicos/buscar              | Buscar tópico por nombre de curso y año (`?curso=Spring boot 3&anio=2025`) |
 | PUT    | /topicos/{id}                | Actualizar un tópico existente                                             |
 | DELETE | /topicos/{id}                | Eliminar un tópico                                                         |
+| POST   | /respuestas                  | Registrar nueva respuesta                                                  |
+| GET    | /respuestas                  | Listar todas las respuestas                                                |
+| GET    | /respuestas/{id}             | Mostrar detalles de una respuesta por ID                                   |
+| PUT    | /respuestas/{id}             | Actualizar un respuesta                                                    |
+| DELETE | /respuestas/{id}             | Eliminar un respuestas                                                     |
 
 ## 🔐 Seguridad con JWT
 
