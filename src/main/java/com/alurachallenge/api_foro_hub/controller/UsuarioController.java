@@ -1,12 +1,12 @@
 package com.alurachallenge.api_foro_hub.controller;
 
-import com.alurachallenge.api_foro_hub.domain.curso.DatosDetalleCurso;
-import com.alurachallenge.api_foro_hub.domain.topico.DatosDetalleTopico;
+
 import com.alurachallenge.api_foro_hub.domain.usuario.DatosDetalleUsuario;
 import com.alurachallenge.api_foro_hub.domain.usuario.DatosRegistroUsuario;
-import com.alurachallenge.api_foro_hub.domain.usuario.Usuario;
+
 import com.alurachallenge.api_foro_hub.domain.usuario.UsuarioRepository;
 import com.alurachallenge.api_foro_hub.service.UsuarioService;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +43,7 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DatosDetalleUsuario>> mostrar(@PageableDefault(size = 5, sort = "nombre")Pageable pag){
+    public ResponseEntity<Page<DatosDetalleUsuario>> mostrar(@Parameter(hidden = true) @PageableDefault(size = 5, sort = "nombre")Pageable pag){
         var page = usuarioService.mostrar(pag);
         return ResponseEntity.ok(page);
     }

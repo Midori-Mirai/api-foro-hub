@@ -7,6 +7,7 @@ import com.alurachallenge.api_foro_hub.domain.respuesta.DatosDetalleRespuesta;
 import com.alurachallenge.api_foro_hub.domain.respuesta.DatosRegistroRespuesta;
 import com.alurachallenge.api_foro_hub.domain.respuesta.RespuestaRepository;
 import com.alurachallenge.api_foro_hub.service.RespuestaService;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class RespuestaController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DatosDetalleRespuesta>> mostrar(@PageableDefault(size = 5, sort = "fechaCreacion") Pageable pag){
+    public ResponseEntity<Page<DatosDetalleRespuesta>> mostrar(@Parameter(hidden = true) @PageableDefault(size = 5, sort = "fechaCreacion") Pageable pag){
         var page = respuestaRepository.findAll(pag).map(DatosDetalleRespuesta::new);
         return ResponseEntity.ok(page);
     }

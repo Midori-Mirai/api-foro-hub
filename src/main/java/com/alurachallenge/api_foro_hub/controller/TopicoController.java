@@ -5,6 +5,7 @@ import com.alurachallenge.api_foro_hub.domain.curso.CursoRepository;
 import com.alurachallenge.api_foro_hub.domain.topico.*;
 import com.alurachallenge.api_foro_hub.domain.usuario.UsuarioRepository;
 import com.alurachallenge.api_foro_hub.service.TopicoService;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,7 @@ public class TopicoController {
 
     //Read
     @GetMapping
-    public ResponseEntity<Page<DatosDetalleTopico>> mostrar (@PageableDefault(size = 5, sort = "fechaCreacion") Pageable paginacion){
+    public ResponseEntity<Page<DatosDetalleTopico>> mostrar (@Parameter(hidden = true) @PageableDefault(size = 5, sort = "fechaCreacion") Pageable paginacion){
         var page = topicoService.mostrar(paginacion);
         return ResponseEntity.ok(page);
     }
