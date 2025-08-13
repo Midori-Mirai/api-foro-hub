@@ -55,38 +55,6 @@ Este proyecto es una API REST desarrollada con **Spring Boot 3** para la gestió
 
 ## 📄 Estructura del proyecto
 ![Estructura del proyecto](imagenes/estructura%20del%20proyecto.png)
-src/
- └── main/
-     ├── java/
-     │   └── com.alurachallenge.api_foro_hub/
-     │       ├── configuration/
-     │       │   └── CorsConfiguration
-     │       ├── controller/
-     │       │   ├── AutenticacionController
-     │       │   ├── CursoController
-     │       │   ├── RespuestaController
-     │       │   ├── TopicoController
-     │       │   └── UsuarioController
-     │       ├── domain/
-     │       │   ├── curso/
-     │       │   ├── respuesta/
-     │       │   ├── topico/
-     │       │   ├── usuario/
-     │       │   └── ValidacionException
-     │       ├── infra/
-     │       │   ├── exception/
-     │       │   ├── security/
-     │       │   └── springdoc/
-     │       └── service/
-     │           └── ApiForoHubApplication
-     └── resources/
-         ├── db.migration/
-         ├── static/
-         ├── templates/
-         ├── application.properties
-         └── ValidationMessages.properties
-
-
 
 ## 📬 Endpoints principales
 
